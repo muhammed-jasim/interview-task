@@ -1,0 +1,33 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block content %}
+    <section class="add-employer-section">
+        <div class="add-emp-img-div">
+            <div class="add-emp-heading">
+                <h1>Add Employer</h1>
+            </div>
+                <form action="{% url 'empdoupdate' %}" method="post" class="add-empoyer" >
+                    {% csrf_token %}
+                    <div class="add-emp-fields">
+                        <label for="">Name</label>
+                        <input type="text" name="name" required value="{{ empupdate.name }}">
+                    </div>
+                    <div class="add-emp-fields">
+                        <label for="">Id</label>
+                        <input type="number" name="emp_id" required value="{{ empupdate.emp_id }}">
+                    </div>
+                    <div class="add-emp-fields">
+                        <label for="">Email</label>
+                        <input type="email" name="email" required value="{{ empupdate.email }}">
+                    </div>
+                    <div class="add-emp-fields">
+                        <label for="">Phone</label>
+                        <input type="number" name="phone" required value="{{ empupdate.phone }}">
+                    </div>
+                    <div class="add-emp-fields">
+                        <input type="submit">
+                    </div>
+                </form>
+        </div>
+    </section>
+{% endblock content %}

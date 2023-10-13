@@ -1,0 +1,62 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block content %}
+    <!-- <section class="employer-list-section">
+        <div class="employee-tbl-div">
+            <table>
+                <thead>
+                    <tr>
+                        <th>SL No</th>
+                        <th>Name</th>
+                        <th>Employee Id</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                {% for employees in employees  %}
+                <tbody>
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ employees.name }}</td>
+                        <td>{{ employees.emp_id }}</td>
+                        <td>{{ employees.email }}</td>
+                        <td>{{ employees.phone }}</td>
+                        <a href=""><td><i class="bi bi-person-fill-add"></i></td></a>
+                        <a href=""><td><i class="bi bi-trash3-fill"></i></td></a>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </section> -->
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SL No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Employee Id</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for employees in employees  %}
+          <tr>
+            <td scope="row">{{ forloop.counter }}</td>
+            <td>{{ employees.name }}</td>
+            <td>{{ employees.emp_id }}</td>
+            <td>{{ employees.email }}</td>
+            <td>{{ employees.phone }}</td>
+            <td><a href="{% url 'empupdate' employees.id %}"><i class="bi bi-person-fill-add"></i></a></td>
+            <td><a href="{% url 'delete_employee' employees.id %}"><i class="bi bi-trash3-fill"></i></td></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
